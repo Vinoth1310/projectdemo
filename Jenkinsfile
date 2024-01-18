@@ -2,14 +2,13 @@ pipeline {
     agent any 
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+        DOCKERHUB_CREDENTIALS = credentials('vinoth1310')
     }
 
     stages {
         stage('SCM Checkout') {
             steps {
-                sh 'rm -rf nodedemo || true'  // Remove existing directory if it exists
-                sh 'git clone https://github.com/majesticteam23/nodedemo.git'
+                sh 'git clone https://github.com/Vinoth1310/node.git'
                 echo 'test1'
             }
         }
@@ -17,15 +16,15 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'test2'
-                sh 'docker build -t majesticteam47/nodedemo:latest .'
+                sh 'docker build -t vinoth1310/sample-project:latest .'
             }
         }
 
         stage('Login to DockerHub') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
-                        sh "docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"
+                    withCredentials([usernamePassword(credentialsId: 'vinnoth1310', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                        sh "docker login -u vinoth1310 -p Vinoth@1310"
                     }
                     echo 'test3'
                 }
@@ -34,7 +33,7 @@ pipeline {
 
         stage('Push Image') {
             steps {
-                sh 'docker push majesticteam47/nodedemo:latest'
+                sh 'docker push vinoth1310/sample-project:latest .'
             }
         }
     }
