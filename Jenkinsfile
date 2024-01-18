@@ -17,7 +17,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'test2'
-                sh 'docker build -t vinoth1310/sample-project:latest .'
+                sh 'docker buildx -t vinoth1310/sample-project:latest .'
 
             }
         }
