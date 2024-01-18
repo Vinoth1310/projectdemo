@@ -18,6 +18,7 @@ pipeline {
             steps {
                 echo 'test2'
                 sh 'docker build -t vinoth1310/sample-project:latest .'
+
             }
         }
 
