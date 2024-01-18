@@ -17,7 +17,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'test2'
-                sh 'docker build -t vinoth1310/sample-project:10.0 .'
+                sh 'docker build -t vinoth1310/sample-project:latest .'
 
             }
         }
@@ -35,7 +35,7 @@ pipeline {
 
         stage('Push Image') {
             steps {
-                sh 'docker push vinoth1310/sample-project:10.0'
+                sh 'docker push vinoth1310/sample-project:latest'
             }
         }
     }
