@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('SCM Checkout') {
             steps {
-                sh 'git clone https://github.com/Vinoth1310/node.git'
+                sh 'git clone https://github.com/Vinoth1310/projectdemo.git'
                 echo 'test1'
             }
         }
